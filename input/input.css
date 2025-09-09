@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer components {
+  .menu-item {
+    @apply block px-4 py-2 text-sm hover:text-red-500;
+  }
+}
+@layer components {
+  .menu {
+    @apply text-gray-700 font-medium px-1 py-2 inline-block transition duration-300 group-hover:text-red-500 group-hover:border-b-2 border-red-500;
+  }
+}
+@layer components {
+  .menu-list {
+    @apply absolute top-full left-0 bg-white shadow-lg rounded-b-xl min-w-[250px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300;
+  }
+
+}
+@layer components {
+  .menu-list-item {
+    @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300;
+  }
+}
