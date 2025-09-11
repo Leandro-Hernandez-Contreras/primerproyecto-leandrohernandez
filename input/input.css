@@ -1,8 +1,19 @@
 @import "tailwindcss";
-
+/*general*/
+@layer base{
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 2;
+  max-width: 1500px;
+}
+}
+/*Menu*/
 @layer components {
   .menu-item {
     @apply block px-4 py-2 text-sm hover:text-red-500;
+    
   }
 }
 @layer components {
@@ -19,5 +30,49 @@
 @layer components {
   .menu-list-item {
     @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300;
+  }
+}
+
+@layer components {
+  .logo {
+    @apply h-9 w-9 transition-all duration-300 hover:scale-[1.15] hover:opacity-80;
+  }
+}
+/*imagenes portadas*/
+@layer components {
+  .titulo-img {
+    @apply text-white font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4;
+  }
+}
+@layer components {
+  .medidas-img {
+    @apply w-[800px] h-[300px] object-cover rounded-lg;
+  }
+}
+@layer components {
+  .contenedor-img {
+    @apply relative w-full max-w-[900px] mx-auto mt-30 flex justify-center items-center;
+  }
+}
+/*mision y vision*/
+@layer components {
+  .menu-title {
+    @apply text-2xl md:text-3xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-red-500;
+  }
+}
+/*nuestros valores*/
+@layer components {
+  .cards {
+    @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-xl shadow-md p-6 w-[350px] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
+  }
+}
+@layer components {
+  .texto-titulo {
+    @apply text-[1.5rem] font-bold text-[#003366] mb-2;
+  }
+}
+@layer components {
+  .texto-cards {
+    @apply text-gray-700 leading-relaxed;
   }
 }
