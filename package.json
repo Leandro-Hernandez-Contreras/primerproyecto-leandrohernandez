@@ -10,6 +10,7 @@
   "author": "Leandro Hernandez",
   "license": "ISC",
   "dependencies": {
+    "@fontsource/libre-baskerville": "^5.2.6",
     "@tailwindcss/cli": "^4.1.12",
     "tailwindcss": "^4.1.12"
   }

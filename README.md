@@ -1,18 +1,8 @@
-# anotaciones de css
+# instalar node
+https://nodejs.org/en/download
 
-selector{ //selector puede ser una clase o un id o un elemento html
-    property: value;
-}
-# selector de tipo HTML
-div{
-    background: red;
-}
+# instalar tailwindcss
+npm install -D tailwindcss
 
-# selector de id
-#titulo{
-    color: black;
-}
-# selector de clase
-.clase{
-    color: red;
-}
+# instalar fontsource libre-baskerville
+npm install @fontsource/libre-baskerville

@@ -8,7 +8,28 @@
   line-height: 2;
   max-width: 1500px;
 }
+body {
+  /* Imagen de fondo */
+  background-image: url(/public/assets/image/logo/liceo.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
 }
+p{
+  font-family: 'Libre Baskerville', serif;
+
+}
+
+
+}
+@layer components {
+  .cards-text-gen{
+    @apply max-w-[1000px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.8];
+  }
+}
+
 /*Menu*/
 @layer components {
   .menu-item {
@@ -41,7 +62,7 @@
 /*imagenes portadas*/
 @layer components {
   .titulo-img {
-    @apply text-white font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4;
+    @apply text-white font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4 ;
   }
 }
 @layer components {
@@ -74,5 +95,21 @@
 @layer components {
   .texto-cards {
     @apply text-gray-700 leading-relaxed;
+  }
+}
+/*Historia*/
+@layer components {
+  .tabla-general {
+    @apply bg-white border-b opacity-90;
+  }
+}
+@layer components {
+  .tabla-texto {
+    @apply px-6 py-4 font-medium text-gray-900;
+  }
+}
+@layer components {
+  .tabla-texto2 {
+    @apply px-6 py-4 text-black;
   }
 }
