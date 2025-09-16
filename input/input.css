@@ -4,7 +4,6 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   line-height: 2;
   max-width: 1500px;
 }
@@ -19,14 +18,18 @@ body {
 }
 p{
   font-family: 'Libre Baskerville', serif;
-
 }
-
+h1{
+  font-family: 'Montserrat Variable', sans-serif
+}
+h5{
+  font-family: 'lato', serif;
+}
 
 }
 @layer components {
   .cards-text-gen{
-    @apply max-w-[1000px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.8];
+    @apply max-w-[1100px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.9];
   }
 }
 
@@ -34,27 +37,18 @@ p{
 @layer components {
   .menu-item {
     @apply block px-4 py-2 text-sm hover:text-red-500;
-    
   }
-}
-@layer components {
   .menu {
     @apply text-gray-700 font-medium px-1 py-2 inline-block transition duration-300 group-hover:text-red-500 group-hover:border-b-2 border-red-500;
   }
-}
-@layer components {
   .menu-list {
     @apply absolute top-full left-0 bg-white shadow-lg rounded-b-xl min-w-[250px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300;
   }
-
 }
 @layer components {
   .menu-list-item {
     @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300;
   }
-}
-
-@layer components {
   .logo {
     @apply h-9 w-9 transition-all duration-300 hover:scale-[1.15] hover:opacity-80;
   }
@@ -62,17 +56,13 @@ p{
 /*imagenes portadas*/
 @layer components {
   .titulo-img {
-    @apply text-white font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4 ;
+    @apply text-black font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4 text-2xl;
   }
-}
-@layer components {
   .medidas-img {
     @apply w-[800px] h-[300px] object-cover rounded-lg;
   }
-}
-@layer components {
   .contenedor-img {
-    @apply relative w-full max-w-[900px] mx-auto mt-30 flex justify-center items-center;
+    @apply relative w-full max-w-[900px] mx-auto mt-30 mb-10 flex justify-center items-center;
   }
 }
 /*mision y vision*/
@@ -84,15 +74,11 @@ p{
 /*nuestros valores*/
 @layer components {
   .cards {
-    @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-xl shadow-md p-6 w-[350px] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
+    @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-xl shadow-md p-6 w-[450px] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
   }
-}
-@layer components {
   .texto-titulo {
-    @apply text-[1.5rem] font-bold text-[#003366] mb-2;
+    @apply text-[1.5rem] text-[#003366] mb-2;
   }
-}
-@layer components {
   .texto-cards {
     @apply text-gray-700 leading-relaxed;
   }
@@ -102,14 +88,56 @@ p{
   .tabla-general {
     @apply bg-white border-b opacity-90;
   }
-}
-@layer components {
   .tabla-texto {
     @apply px-6 py-4 font-medium text-gray-900;
   }
-}
-@layer components {
   .tabla-texto2 {
     @apply px-6 py-4 text-black;
   }
 }
+/*Galeria*/
+@layer components {
+  .carousel {
+    @apply ml-60 relative w-[90%] max-w-[800px] aspect-[16/9] rounded-xl shadow-lg overflow-hidden;
+  }
+  .slide-item {
+    @apply absolute inset-0 opacity-0;
+    animation: fadeEffect 28s infinite ease-in-out;
+  }
+  .slide-item img {
+    @apply w-[800px] h-[400px] ; 
+  }
+
+  .slide-item:nth-child(1) { animation-delay: 0s; }
+  .slide-item:nth-child(2) { animation-delay: 5s; }
+  .slide-item:nth-child(3) { animation-delay: 10s; }
+  .slide-item:nth-child(4) { animation-delay: 15s; }
+  .slide-item:nth-child(5) { animation-delay: 20s; }
+  .slide-item:nth-child(6) { animation-delay: 25s; }
+  .slide-item:nth-child(7) { animation-delay: 30s; }
+}
+@keyframes fadeEffect {
+  0% { opacity: 0; z-index: 0; }
+  2% { opacity: 1; z-index: 1; }
+  12% { opacity: 1; z-index: 1; }
+  14% { opacity: 0; z-index: 0; }
+  100% { opacity: 0; z-index: 0; }
+}
+/*Contacto*/
+@layer{
+  .titulo-contacto{
+    @apply block text-gray-700 text-sm font-bold mb-2;
+  }
+  .menu-contacto{
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition;
+  }
+}
+ /*Cv*/
+ @layer components{
+  .card-titulo{
+    @apply block text-sm font-medium text-gray-700;
+  }
+  .menu-cv{
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border;
+  }
+ }

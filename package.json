@@ -10,6 +10,8 @@
   "author": "Leandro Hernandez",
   "license": "ISC",
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.2.7",
+    "@fontsource/lato": "^5.2.6",
     "@fontsource/libre-baskerville": "^5.2.6",
     "@tailwindcss/cli": "^4.1.12",
     "tailwindcss": "^4.1.12"

@@ -6,3 +6,6 @@ npm install -D tailwindcss
 
 # instalar fontsource libre-baskerville
 npm install @fontsource/libre-baskerville
+
+# instalar fotnsource lato
+npm install @fontsource/lato
