@@ -1,39 +1,44 @@
 @import "tailwindcss";
-/*general*/
-@layer base{
-*{
-  margin: 0;
-  padding: 0;
-  line-height: 2;
-  max-width: 1500px;
-}
-body {
-  /* Imagen de fondo */
-  background-image: url(/public/assets/image/logo/liceo.png);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100%;
-}
-p{
-  font-family: 'Libre Baskerville', serif;
-}
-h1{
-  font-family: 'Montserrat Variable', sans-serif
-}
-h5{
-  font-family: 'lato', serif;
+
+/* =======================
+   General
+======================= */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+    max-width: 1500px;
+  }
+  body {
+    /* Imagen de fondo */
+    background-image: url(/public/assets/image/logo/liceo.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
+  }
+  p {
+    font-family: "Libre Baskerville", serif;
+  }
+  h1 {
+    font-family: "Montserrat Variable", sans-serif;
+  }
+  h5 {
+    font-family: "lato", serif;
+  }
 }
 
-}
 @layer components {
-  .cards-text-gen{
+  .cards-text-gen {
     @apply max-w-[1100px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.9];
   }
 }
 
-/*Menu*/
+/* =======================
+   Menú
+======================= */
 @layer components {
   .menu-item {
     @apply block px-4 py-2 text-sm hover:text-red-500;
@@ -44,8 +49,6 @@ h5{
   .menu-list {
     @apply absolute top-full left-0 bg-white shadow-lg rounded-b-xl min-w-[250px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300;
   }
-}
-@layer components {
   .menu-list-item {
     @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300;
   }
@@ -53,7 +56,10 @@ h5{
     @apply h-9 w-9 transition-all duration-300 hover:scale-[1.15] hover:opacity-80;
   }
 }
-/*imagenes portadas*/
+
+/* =======================
+   Imágenes Portadas
+======================= */
 @layer components {
   .titulo-img {
     @apply text-black font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4 text-2xl;
@@ -65,13 +71,19 @@ h5{
     @apply relative w-full max-w-[900px] mx-auto mt-30 mb-10 flex justify-center items-center;
   }
 }
-/*mision y vision*/
+
+/* =======================
+   Misión y Visión
+======================= */
 @layer components {
   .menu-title {
     @apply text-2xl md:text-3xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-red-500;
   }
 }
-/*nuestros valores*/
+
+/* =======================
+   Nuestros Valores
+======================= */
 @layer components {
   .cards {
     @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-xl shadow-md p-6 w-[450px] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
@@ -83,7 +95,10 @@ h5{
     @apply text-gray-700 leading-relaxed;
   }
 }
-/*Historia*/
+
+/* =======================
+   Historia
+======================= */
 @layer components {
   .tabla-general {
     @apply bg-white border-b opacity-90;
@@ -95,7 +110,10 @@ h5{
     @apply px-6 py-4 text-black;
   }
 }
-/*Galeria*/
+
+/* =======================
+   Galería
+======================= */
 @layer components {
   .carousel {
     @apply ml-60 relative w-[90%] max-w-[800px] aspect-[16/9] rounded-xl shadow-lg overflow-hidden;
@@ -105,39 +123,86 @@ h5{
     animation: fadeEffect 28s infinite ease-in-out;
   }
   .slide-item img {
-    @apply w-[800px] h-[400px] ; 
+    @apply w-[800px] h-[400px];
   }
+  .slide-item:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .slide-item:nth-child(2) {
+    animation-delay: 5s;
+  }
+  .slide-item:nth-child(3) {
+    animation-delay: 10s;
+  }
+  .slide-item:nth-child(4) {
+    animation-delay: 15s;
+  }
+  .slide-item:nth-child(5) {
+    animation-delay: 20s;
+  }
+  .slide-item:nth-child(6) {
+    animation-delay: 25s;
+  }
+  .slide-item:nth-child(7) {
+    animation-delay: 30s;
+  }
+}
 
-  .slide-item:nth-child(1) { animation-delay: 0s; }
-  .slide-item:nth-child(2) { animation-delay: 5s; }
-  .slide-item:nth-child(3) { animation-delay: 10s; }
-  .slide-item:nth-child(4) { animation-delay: 15s; }
-  .slide-item:nth-child(5) { animation-delay: 20s; }
-  .slide-item:nth-child(6) { animation-delay: 25s; }
-  .slide-item:nth-child(7) { animation-delay: 30s; }
-}
 @keyframes fadeEffect {
-  0% { opacity: 0; z-index: 0; }
-  2% { opacity: 1; z-index: 1; }
-  12% { opacity: 1; z-index: 1; }
-  14% { opacity: 0; z-index: 0; }
-  100% { opacity: 0; z-index: 0; }
+  0% {
+    opacity: 0;
+    z-index: 0;
+  }
+  2% {
+    opacity: 1;
+    z-index: 1;
+  }
+  12% {
+    opacity: 1;
+    z-index: 1;
+  }
+  14% {
+    opacity: 0;
+    z-index: 0;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
 }
-/*Contacto*/
-@layer{
-  .titulo-contacto{
+
+/* =======================
+   Contacto
+======================= */
+@layer {
+  .titulo-contacto {
     @apply block text-gray-700 text-sm font-bold mb-2;
   }
-  .menu-contacto{
+  .menu-contacto {
     @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition;
   }
 }
- /*Cv*/
- @layer components{
-  .card-titulo{
+
+/* =======================
+   CV
+======================= */
+@layer components {
+  .card-titulo {
     @apply block text-sm font-medium text-gray-700;
   }
-  .menu-cv{
+  .menu-cv {
     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border;
   }
- }
+}
+
+/* =======================
+   Emblemas
+======================= */
+@layer components {
+      .box {
+        @apply bg-white/[0.8] rounded-xl shadow-md p-4;
+      }
+      .titulo {
+        @apply text-2xl font-bold text-center mb-4;
+      }
+    }
