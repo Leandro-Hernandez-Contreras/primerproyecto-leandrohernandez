@@ -8,16 +8,15 @@
     margin: 0;
     padding: 0;
     line-height: 2;
-    max-width: 1500px;
+    max-width: 100%; 
   }
   body {
-    /* Imagen de fondo */
     background-image: url(/public/assets/image/logo/liceo.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100%;
+    min-height: 100vh; 
   }
   p {
     font-family: "Libre Baskerville", serif;
@@ -25,14 +24,57 @@
   h1 {
     font-family: "Montserrat Variable", sans-serif;
   }
+  h3{
+    font-family: "lato", serif;
+  }
   h5 {
     font-family: "lato", serif;
+  }
+  .imagen {
+    width: 100%;
+  }
+  .imagen img {
+    width: 100%;
+  }
+  .galeria {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    /* Adaptación de columnas para la galería base */
+    grid-template-columns: repeat(1, 1fr); /* 1 columna por defecto */
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+    @screen sm {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en sm */
+    }
+    @screen md {
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas en md */
+    }
   }
 }
 
 @layer components {
   .cards-text-gen {
-    @apply max-w-[1100px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.9];
+    @apply max-w-full mx-auto mt-8 mb-8 p-4 rounded-lg text-base leading-relaxed bg-white/[0.9]; /* Ajustes para móviles */
+    @screen sm {
+      @apply max-w-[700px] mt-10 mb-10 p-5 text-[1.05rem];
+    }
+    @screen md {
+      @apply max-w-[900px] mt-12 mb-12 p-6 text-[1.1rem] leading-[2];
+    }
+    @screen lg {
+      @apply max-w-[1100px];
+    }
+  }
+  .titulos {
+    @apply font-semibold bg-red-100/35 w-full rounded-lg text-center p-3 text-xl mt-10 mx-auto; /* Ajustes para móviles */
+    @screen sm {
+      @apply w-[400px] p-4 text-2xl mt-20;
+    }
+    @screen md {
+      @apply w-[500px] rounded-2xl mt-30 ml-95; /* Mantener original para md+ */
+    }
   }
 }
 
@@ -41,19 +83,34 @@
 ======================= */
 @layer components {
   .menu-item {
-    @apply block px-4 py-2 text-sm hover:text-red-500;
+    @apply block px-3 py-2 text-sm hover:text-red-500;
   }
   .menu {
     @apply text-gray-700 font-medium px-1 py-2 inline-block transition duration-300 group-hover:text-red-500 group-hover:border-b-2 border-red-500;
   }
   .menu-list {
-    @apply absolute top-full left-0 bg-white shadow-lg rounded-b-xl min-w-[250px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300;
+    @apply absolute top-full left-0 bg-white shadow-lg rounded-b-xl min-w-[200px] opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300; /* Ajuste min-w */
+    @screen sm {
+      @apply min-w-[250px];
+    }
   }
   .menu-list-item {
-    @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300;
+    @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[150px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300; /* Ajuste min-w */
+    @screen sm {
+      @apply min-w-[180px];
+    }
   }
   .logo {
-    @apply h-9 w-9 transition-all duration-300 hover:scale-[1.15] hover:opacity-80;
+    @apply h-8 w-8 transition-all duration-300 hover:scale-[1.15] hover:opacity-80; /* Ajuste de tamaño para móviles */
+    @screen sm {
+      @apply h-9 w-9;
+    }
+  }
+  .submenu-cursos {
+    @apply absolute top-0 left-full ml-1 bg-white shadow-lg rounded-xl min-w-[180px] opacity-0 invisible translate-y-2 group-hover/child:opacity-100 group-hover/child:visible group-hover/child:translate-y-0 transition-all duration-300; /* Ajuste min-w */
+    @screen sm {
+      @apply min-w-[200px];
+    }
   }
 }
 
@@ -62,13 +119,36 @@
 ======================= */
 @layer components {
   .titulo-img {
-    @apply text-black font-semibold absolute mr-[20vw] bg-red-100/35 w-[450px] rounded-2xl text-left p-4 text-2xl;
+    @apply text-black font-semibold absolute bg-red-100/35 w-[calc(100%-2rem)] rounded-lg text-center p-3 text-xl; /* Ajustes para móviles */
+    left: 1rem; /* Centrar horizontalmente con padding */
+    right: 1rem;
+    @screen sm {
+      @apply w-[350px] rounded-xl text-left p-4 text-2xl;
+      left: auto; /* Eliminar left/right para sm+ */
+      right: auto;
+      margin-right: 20vw; /* Mantener el margen original */
+    }
+    @screen md {
+      @apply w-[450px] rounded-2xl;
+    }
   }
   .medidas-img {
-    @apply w-[800px] h-[300px] object-cover rounded-lg;
+    @apply w-full h-[200px] object-cover rounded-md; /* Ajustes para móviles */
+    @screen sm {
+      @apply w-[600px] h-[250px] rounded-lg;
+    }
+    @screen md {
+      @apply w-[800px] h-[300px];
+    }
   }
   .contenedor-img {
-    @apply relative w-full max-w-[900px] mx-auto mt-30 mb-10 flex justify-center items-center;
+    @apply relative w-full max-w-full mx-auto mt-10 mb-5 flex justify-center items-center; /* Ajustes para móviles */
+    @screen sm {
+      @apply max-w-[700px] mt-20 mb-8;
+    }
+    @screen md {
+      @apply max-w-[900px] mt-30 mb-10;
+    }
   }
 }
 
@@ -77,7 +157,7 @@
 ======================= */
 @layer components {
   .menu-title {
-    @apply text-2xl md:text-3xl font-bold text-gray-800 mb-4 border-b-2 pb-2 border-red-500;
+    @apply text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 border-b-2 pb-2 border-red-500; /* Ajustes de tamaño de texto */
   }
 }
 
@@ -86,13 +166,28 @@
 ======================= */
 @layer components {
   .cards {
-    @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-xl shadow-md p-6 w-[450px] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
+    @apply bg-white border border-gray-200 border-l-4 border-r-4 border-[#003366] rounded-lg shadow-md p-4 w-full transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg; /* Ajustes para móviles */
+    @screen sm {
+      @apply w-[350px] p-5 rounded-xl;
+    }
+    @screen md {
+      @apply w-[450px] p-6;
+    }
   }
   .texto-titulo {
-    @apply text-[1.5rem] text-[#003366] mb-2;
+    @apply text-[1.2rem] text-[#003366] mb-2; /* Ajuste de tamaño de texto */
+    @screen sm {
+      @apply text-[1.3rem];
+    }
+    @screen md {
+      @apply text-[1.5rem];
+    }
   }
   .texto-cards {
-    @apply text-gray-700 leading-relaxed;
+    @apply text-gray-700 leading-normal text-sm; /* Ajuste de tamaño de texto y altura de línea */
+    @screen sm {
+      @apply leading-relaxed text-base;
+    }
   }
 }
 
@@ -104,26 +199,42 @@
     @apply bg-white border-b opacity-90;
   }
   .tabla-texto {
-    @apply px-6 py-4 font-medium text-gray-900;
+    @apply px-4 py-3 font-medium text-gray-900 text-sm; /* Ajustes para móviles */
+    @screen sm {
+      @apply px-6 py-4 text-base;
+    }
   }
   .tabla-texto2 {
-    @apply px-6 py-4 text-black;
+    @apply px-4 py-3 text-black text-sm; /* Ajustes para móviles */
+    @screen sm {
+      @apply px-6 py-4 text-base;
+    }
   }
 }
 
-/* =======================
-   Galería
-======================= */
+/* Galería */
 @layer components {
   .carousel {
-    @apply ml-60 relative w-[90%] max-w-[800px] aspect-[16/9] rounded-xl shadow-lg overflow-hidden;
+    @apply mx-auto relative w-[95%] max-w-[600px] aspect-[16/9] rounded-lg shadow-md overflow-hidden; /* Ajustes para móviles */
+    @screen sm {
+      @apply w-[90%] max-w-[700px] rounded-xl;
+    }
+    @screen md {
+      @apply ml-60 max-w-[800px]; /* Mantener el margen original para md+ */
+    }
   }
   .slide-item {
     @apply absolute inset-0 opacity-0;
     animation: fadeEffect 28s infinite ease-in-out;
   }
   .slide-item img {
-    @apply w-[800px] h-[400px];
+    @apply w-full h-[250px] object-cover; /* Ajustes para móviles */
+    @screen sm {
+      @apply h-[350px];
+    }
+    @screen md {
+      @apply w-[800px] h-[400px]; /* Mantener el tamaño original para md+ */
+    }
   }
   .slide-item:nth-child(1) {
     animation-delay: 0s;
@@ -176,10 +287,13 @@
 ======================= */
 @layer {
   .titulo-contacto {
-    @apply block text-gray-700 text-sm font-bold mb-2;
+    @apply block text-gray-700 text-base font-bold mb-2; /* Ajuste de tamaño de texto */
   }
   .menu-contacto {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition;
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm; /* Ajuste de padding y tamaño de texto */
+    @screen sm {
+      @apply px-4 py-2 text-base;
+    }
   }
 }
 
@@ -191,18 +305,136 @@
     @apply block text-sm font-medium text-gray-700;
   }
   .menu-cv {
-    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border;
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border text-sm; /* Ajuste de tamaño de texto */
+    @screen sm {
+      @apply text-base;
+    }
   }
 }
 
-/* =======================
-   Emblemas
-======================= */
+/* Emblemas */
 @layer components {
-      .box {
-        @apply bg-white/[0.8] rounded-xl shadow-md p-4;
-      }
-      .titulo {
-        @apply text-2xl font-bold text-center mb-4;
-      }
+  .box {
+    @apply bg-white/[0.8] rounded-lg shadow-md p-3; /* Ajustes para móviles */
+    @screen sm {
+      @apply rounded-xl p-4;
     }
+  }
+  .titulo {
+    @apply text-xl font-bold text-center mb-3; /* Ajustes para móviles */
+    @screen sm {
+      @apply text-2xl mb-4;
+    }
+  }
+}
+
+/* Equipo Aytue */
+@layer components {
+  .card-equipo {
+    @apply flex justify-center mb-8; /* Ajuste de margen */
+    @screen sm {
+      @apply mb-10;
+    }
+  }
+  .card-equipo-gen {
+    @apply bg-white shadow-lg rounded-lg p-4 text-center; /* Ajustes para móviles */
+    @screen sm {
+      @apply rounded-xl p-5;
+    }
+  }
+  .img-card {
+    @apply w-32 h-44 mx-auto object-cover rounded-md mb-3; /* Ajustes para móviles */
+    @screen sm {
+      @apply w-40 h-52 mb-4;
+    }
+  }
+  .text-card {
+    @apply text-gray-500 text-xs; /* Ajuste de tamaño de texto */
+    @screen sm {
+      @apply text-sm;
+    }
+  }
+}
+
+/*Produccion Audiovisual y Medias*/
+@layer components {
+  .gallery-image {
+    @apply rounded-lg shadow-md hover:scale-105 transition-transform cursor-pointer;
+  }
+  .toggle-button {
+    @apply mb-4 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm; /* Ajuste de tamaño de texto */
+    @screen sm {
+      @apply mb-6 px-6 py-3 text-base;
+    }
+  }
+
+  /*articulos*/
+  @layer components {
+    .img-articulo{
+      @apply w-full h-48 object-cover;
+    }
+    .text-arti {
+      @apply text-black mb-4 line-clamp-3;
+    }
+    .titulo-arti{
+      @apply text-xl font-bold text-gray-800 mb-3;
+    }
+    .subtitulo-arti{
+      @apply text-white px-3 py-1 rounded-full text-xs font-semibold mr-3;
+    }
+    .gen-card-arti{
+      @apply flex items-center text-sm text-gray-500 mb-3;
+    }
+
+}
+  /*375px - 599px*/
+  @media (min-width: 375px) and (max-width: 599px) {
+    .gallery-grid {
+      @apply grid-cols-1 gap-4;
+    }
+    .toggle-button {
+      @apply px-3 py-2 text-sm;
+    }
+  }
+
+  /*600px - 767px*/
+  @media (min-width: 600px) and (max-width: 767px) {
+    .gallery-grid {
+      @apply grid-cols-2 gap-5;
+    }
+  }
+
+  /*768px - 1023px*/
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .gallery-grid {
+      @apply grid-cols-3 gap-6;
+    }
+  }
+
+  /* >=1024px*/
+  @media (min-width: 1024px) {
+    .gallery-grid {
+      @apply grid-cols-4 gap-8;
+    }
+  }
+
+  /* Modal styles */
+  .modal-bg {
+    @apply fixed inset-0 bg-black flex items-center justify-center p-2 hidden z-50; /* Ajuste de padding */
+    @screen sm {
+      @apply p-4;
+    }
+  }
+  .modal-img {
+    @apply max-w-full max-h-[70vh] rounded-lg shadow-lg object-contain; /* Ajuste de max-h */
+    @screen sm {
+      @apply max-h-[80vh];
+    }
+  }
+  .modal-close {
+    @apply absolute top-2 right-4 text-white text-3xl font-bold cursor-pointer hover:text-gray-300 focus:outline-none; /* Ajuste de posición y tamaño de texto */
+    @screen sm {
+      @apply top-4 right-6 text-4xl;
+    }
+  }
+}
