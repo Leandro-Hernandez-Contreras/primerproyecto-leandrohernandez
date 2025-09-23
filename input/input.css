@@ -46,10 +46,10 @@
 
 @layer components {
   .cards-text-gen {
-    @apply max-w-[1100px] mx-auto mt-12 mb-12 p-6 rounded-xl text-[1.1rem] leading-[2] bg-white/[0.9]; 
+    @apply max-w-[1100px] mx-auto mt-12 mb-12 p-6 rounded-xl text-white text-[1.1rem] leading-[2] bg-black/[0.7]; 
   }
   .titulos {
-    @apply font-semibold bg-red-100/35 w-[500px] rounded-2xl text-center p-4 text-2xl mt-12 mx-auto; 
+    @apply font-semibold bg-red-100/35 w-[500px] rounded-2xl  text-center p-4 text-2xl mt-12 mx-auto; 
   }
 }
 
@@ -88,11 +88,23 @@
     @apply relative w-full max-w-[900px] mx-auto mt-30 mb-10 flex justify-center items-center ; /* Contenedor desktop */
   }
 }
+/* Index */
+  @layer components {
+  .card-img-ind {
+    @apply absolute inset-0 opacity-0 z-0; 
+  }
+  .img-ind {
+    @apply w-full h-full object-cover;
+  }
+  .slides-container {
+    @apply absolute inset-0 transition-opacity duration-1000 ease-in-out;
+  }
 
+}
 /* Misión y Visión */
 @layer components {
   .menu-title {
-    @apply text-3xl font-bold text-gray-800 mb-3 border-b-2 pb-2 border-red-500; /* Tamaño desktop grande */
+    @apply text-3xl font-bold text-white mb-3 border-b-2 pb-2 border-red-500; /* Tamaño desktop grande */
   }
 }
 
